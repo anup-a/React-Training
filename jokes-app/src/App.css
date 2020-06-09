@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+  background-color: #1b1b2f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 8rem);
+  padding: 4rem 0;
+  width: 80%;
+}
+
+.main-banner {
+  background-color: #ffffff;
+  background-image: url("./Chroma\ -\ 14.png");
+  background-size: cover;
+  color: #fff;
+  height: 100%;
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  box-shadow: 0 5px 10px -3px rgba(14, 13, 26, .12), 0 3px 16px 2px rgba(7, 48, 114, .12), 0 8px 12px 1px rgba(34, 0, 51, .04);
+  border-radius: 10px;
+}
+
+.main-banner .main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 1rem;
+}
+
+.jokes-container {
+  background-color: #fff;
+  color: #000;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 2rem 0 2rem -1rem;
+  padding: 0 2rem;
+  box-shadow: 0 5px 10px -3px rgba(14, 13, 26, .12), 0 3px 16px 2px rgba(7, 48, 114, .12), 0 8px 12px 1px rgba(34, 0, 51, .04);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: scroll;
+  width: 70%;
+}
+
+.jokes-container p {
+  margin: 0.5rem;
+}
