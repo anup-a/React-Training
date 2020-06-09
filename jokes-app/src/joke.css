@@ -1,0 +1,35 @@
+.joke {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 1px solid #aaaaaa;
+    padding: 1.4rem;
+}
+
+.joke-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 15%;
+}
+
+.joke-text {
+    color: #121212;
+    width: 75%;
+    text-align: start;
+}
+
+.joke-votes {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid red;
+    line-height: 50px;
+    box-shadow: 0 5px 10px -3px rgba(14, 13, 26, .12), 0 3px 16px 2px rgba(7, 48, 114, .12), 0 8px 12px 1px rgba(34, 0, 51, .04);
+}
+
+.vote-icons {
+    color: rgb(202, 176, 160);
+    /* background-image: linear-gradient(315deg, #feeacf 0%, #f79b73 74%) !important; */
+
+}

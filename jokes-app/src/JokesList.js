@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import jokes from './jokes.png';
 
 import Axios from 'axios';
+import Joke from './joke';
 
 export default class JokesList extends Component {
     static defaultProps = {
@@ -12,6 +13,7 @@ export default class JokesList extends Component {
         this.state = {
             jokes: []
         }
+        this.handleVote = this.handleVote.bind(this);
     }
     async componentWillMount() {
         let jokes = [];
@@ -20,9 +22,18 @@ export default class JokesList extends Component {
             const joke = randomJoke.data.joke;
             const jokeId = randomJoke.data.id;
 
-            jokes.push({ joke: joke, id: jokeId });
+            jokes.push({ joke: joke, id: jokeId, votes: 0 });
         }
         this.setState({ jokes: jokes });
+    }
+
+    handleVote(id, delta) {
+        this.setState(
+            st => ({
+                jokes: st.jokes.map(j =>
+                    j.id === id ? { ...j, votes: j.votes + delta } : j)
+            })
+        )
     }
 
     render() {
@@ -35,7 +46,13 @@ export default class JokesList extends Component {
                     <p className="main-title">Dad Jokes</p>
                 </div>
                 <div className="jokes-container">
-                    {this.state.jokes.map(j => <p key={j.id}>{j.joke}</p>)}
+                    {this.state.jokes.map(j => <Joke
+                        key={j.id}
+                        text={j.joke}
+                        votes={j.votes}
+                        upvote={() => this.handleVote(j.id, 1)}
+                        downvote={() => this.handleVote(j.id, -1)}
+                    />)}
 
                 </div>
             </div>
