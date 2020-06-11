@@ -31,7 +31,7 @@ export default class JokesList extends Component {
         this.setState(
             st => ({
                 jokes: st.jokes.map(j =>
-                    j.id === id ? { ...j, votes: j.votes + delta } : j)
+                    (j.id === id && j.votes < 15) ? { ...j, votes: j.votes + delta } : j)
             })
         )
     }

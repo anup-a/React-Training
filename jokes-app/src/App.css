@@ -18,11 +18,11 @@
 .main-banner {
   background-color: #ffffff;
   background-image: url("./Chroma\ -\ 14.png");
+  /* background-image: url("./c2.png"); */
   background-size: cover;
   color: #fff;
   height: 100%;
   width: 25%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
