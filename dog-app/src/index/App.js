@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App/App.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import hazel from './imgs/hazel.jpg'
-import whiskey from './imgs/whiskey.jpg';
-import tubby from './imgs/tubby.jpg';
+import hazel from './App/hazel.jpg'
+import whiskey from './App/whiskey.jpg';
+import tubby from './App/tubby.jpg';
 import { Switch, Route } from 'react-router-dom';
 
-import DogList from './DogList';
-import DogDetails from './DogDetails'
+import DogList from './App/DogList';
+import DogDetails from './App/DogDetails'
+import Navbar from './App/Navbar';
 
 
 
@@ -58,10 +59,13 @@ class App extends Component {
       return <DogDetails {...props} dog={currentDog} />
     }
     return (
-      <Switch>
-        <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
-        <Route exact path="/dogs/:name" render={getDog} />
-      </Switch>
+      <div>
+        <Navbar dogs={this.props.dogs} />
+        <Switch>
+          <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
+          <Route exact path="/dogs/:name" render={getDog} />
+        </Switch>
+      </div>
     )
   }
 }

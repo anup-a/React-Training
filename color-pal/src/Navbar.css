@@ -1,0 +1,50 @@
+nav {
+    height: 6vh;
+    display: flex;
+    align-items: center;
+}
+
+nav .logo {
+    background-color: rgb(214, 214, 214);
+    padding: 15px;
+}
+
+nav .logo a span {
+    font-size: 1.5rem;
+}
+
+nav .logo a {
+    text-decoration: none;
+
+}
+
+.slider-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.slider {
+    width: 20%;
+    margin: 1rem;
+}
+
+.rc-slider-track {
+    background: transparent;
+}
+
+.rc-slider-rail {
+    height: 5px;
+}
+
+.rc-slider-handle,
+.rc-slider-handle:hover,
+.rc-slider-handle:active,
+.rc-slider-handle:focus {
+    border: none;
+    outline: none;
+    background-color: blueviolet;
+    box-shadow: none;
+    margin-bottom: -2px;
+}

@@ -1,0 +1,10 @@
+.nav-item {
+    text-transform: uppercase;
+    letter-spacing: 0.1cm;
+    margin: 0 2rem;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    filter: grayscale();
+}

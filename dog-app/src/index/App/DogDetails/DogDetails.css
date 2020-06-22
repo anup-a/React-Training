@@ -1,0 +1,18 @@
+.Dog-card img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    margin: -2px;
+}
+
+.Dog-card {
+    max-width: 350px;
+}
+
+.Dog-card .list-group-item {
+    font-size: 0.85rem;
+}
+
+.Dog-details .btn-custom {
+    color: #222
+}

@@ -1,3 +1,52 @@
 .Dog img {
     width: 75%;
+    filter: grayscale();
+    border-radius: 50%;
+    transition: filter 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.heading-text {
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.Dog:hover img {
+    filter: none;
+}
+
+.dog-underline {
+    width: 45%;
+}
+
+.dog-name {
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.1cm;
+    position: relative;
+    transition: letter-spacing 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.dog-name:hover {
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 0.2cm;
+}
+
+
+.dog-name::after {
+    width: 0%;
+    height: 4px;
+    display: block;
+    background-color: #fff;
+    content: "";
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transition: left 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045), width 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.dog-name:hover.dog-name::after {
+    width: 100%;
+    left: 0%;
 }
