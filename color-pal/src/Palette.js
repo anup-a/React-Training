@@ -30,7 +30,7 @@ export default class Palette extends Component {
         const { palette } = this.props;
         const { level, colorFormat } = this.state;
         console.log(palette)
-        const colorBoxes = palette.colors[level].map(color => <ColorBox color={color[colorFormat]} name={color.name} />)
+        const colorBoxes = palette.colors[level].map(color => <ColorBox color={color[colorFormat]} name={color.name} key={color.name} />)
         return (
             <div className="Palette">
                 <Navbar level={level} changeLevel={this.handleChangeLevel} colorFormat={colorFormat} changeFormat={this.handleChangeFormat} />
