@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './PaletteList.css';
 import MiniPalette from './MiniPalette';
 import { withStyles } from '@material-ui/core/styles'
 // import classes from '*.module.css';
@@ -20,11 +18,10 @@ const styles = {
     main: {
         display: "flex",
         flexDirection: "column",
-        // justifyContent: /"flex-start",
         width: "60%",
         alignItems: "flex-start",
-        flexWrap: "wrap"
-
+        flexWrap: "wrap",
+        height: "100%",
     },
     navbar: {
         display: "inline-block",

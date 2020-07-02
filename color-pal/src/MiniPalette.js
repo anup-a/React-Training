@@ -17,7 +17,7 @@ const styles = {
     },
     paletteColors: {
         backgroundColor: "#dae1e4",
-        height: "150px",
+        height: "110px",
         width: "100%",
         borderRadius: "5px",
         overflow: "hidden"

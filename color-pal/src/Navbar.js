@@ -4,13 +4,63 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-
+import { withStyles } from '@material-ui/core/styles';
 
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import './Navbar.css'
+// import './Navbar.css'
+// import classes from '*.module.css';
 
-export default class Navbar extends Component {
+const styles = {
+    Nav: {
+        height: '6vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    Logo: {
+        backgroundColor: "rgb(214, 214, 214)",
+        padding: "15px",
+        "& a span": {
+            fontSize: '1.5rem',
+        },
+        "& a": {
+            textDecoration: 'none',
+        },
+    },
+    SliderContainer: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        margin: '1rem',
+    },
+    Slider: {
+        width: '20%',
+        margin: '1rem',
+        "& .rc-slider-track": {
+            background: 'transparent'
+        },
+        "& rc-slider-rail": {
+            height: 5,
+        },
+        "& .rc-slider-handle, .rc-slider-handle:hover, .rc-slider-handle:active, .rc-slider-handle:focus": {
+            border: 'none',
+            outline: 'none',
+            backgroundColor: 'blueviolet',
+            boxShadow: 'none',
+            marginBottom: '-2px',
+        }
+    },
+    SelectContainer: {
+        justifyContent: 'flex-end',
+    },
+
+
+
+
+}
+
+class Navbar extends Component {
 
     constructor(props) {
         super(props);
@@ -36,19 +86,22 @@ export default class Navbar extends Component {
     }
 
     render() {
+        // console.log(this.props.showLevelHandler);
+        const { classes } = this.props;
+
         return (
-            <nav>
-                <div className="logo">
+            <nav className={classes.Nav}>
+                <div className={classes.Logo}>
                     <a href="#">
                         <span role="img">🎨</span>
                     </a>
                 </div>
-                <div className="slider-container">
+                {this.props.showLevelHandler && (<div className={classes.SliderContainer}>
                     <span className="level-name">Level : {this.props.level}</span>
-                    <div className="slider">
+                    <div className={classes.Slider}>
                         <Slider min={100} max={900} step={100} defaultValue={this.props.level} onChange={this.props.changeLevel} />
                     </div>
-                </div>
+                </div>)}
                 <div className="select-container">
                     <Select value={this.props.colorFormat} onChange={this.changeFormat}>
                         <MenuItem value="hex">HEX - #ffffff</MenuItem>
@@ -75,3 +128,5 @@ export default class Navbar extends Component {
         )
     }
 }
+
+export default withStyles(styles)(Navbar);

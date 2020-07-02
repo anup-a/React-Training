@@ -1,11 +1,36 @@
-import React, { Component } from 'react'
-import ColorBox from './ColorBox'
-
+import React, { Component } from 'react';
+import ColorBox from './ColorBox';
+import { withStyles } from '@material-ui/core/styles';
 import Navbar from './Navbar';
-import './Palette.css';
+// import './Palette.css';
 
+const styles = {
+    Palette: {
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden',
+    },
+    PaletteColors: {
+        height: "90%"
+    },
+    footerSection: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        height: '6vh',
+        letterSpacing: '2px',
+        fontSize: '15px',
+        fontWeight: '600',
+        textTransform: 'uppercase',
+        "& span": {
+            margin: '0 1rem',
+            fontSize: '20px',
+        }
+    }
+}
 
-export default class Palette extends Component {
+class Palette extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,17 +52,16 @@ export default class Palette extends Component {
     }
 
     render() {
-        const { palette } = this.props;
+        const { palette, classes } = this.props;
         const { level, colorFormat } = this.state;
-        console.log(palette)
-        const colorBoxes = palette.colors[level].map(color => <ColorBox color={color[colorFormat]} name={color.name} key={color.name} />)
+        const colorBoxes = palette.colors[level].map(color => <ColorBox color={color[colorFormat]} paletteId={palette.id} colorId={color.id} name={color.name} key={color.name} showMoreButton />)
         return (
-            <div className="Palette">
-                <Navbar level={level} changeLevel={this.handleChangeLevel} colorFormat={colorFormat} changeFormat={this.handleChangeFormat} />
-                <div className="Palette-colors">
+            <div className={classes.Palette}>
+                <Navbar level={level} changeLevel={this.handleChangeLevel} colorFormat={colorFormat} changeFormat={this.handleChangeFormat} showLevelHandler />
+                <div className={classes.PaletteColors}>
                     {colorBoxes}
                 </div>
-                <footer className="footer-section">
+                <footer className={classes.footerSection}>
                     {palette.paletteName}
                     <span>
                         {palette.emoji}
@@ -47,3 +71,5 @@ export default class Palette extends Component {
         )
     }
 }
+
+export default withStyles(styles)(Palette);
